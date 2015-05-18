@@ -1,0 +1,43 @@
+<snippet>
+	<content><![CDATA[
+{            
+	"observe": [
+		{
+			"resource": "${1:id do recurso}",
+			"event": "timeEvent",
+			"value": [
+				[">=", ${2:tempo de entrada}],
+				["<", ${3:tempo de saida}]
+			],                 
+			"direction": "down",
+			"action": "in"
+		},
+
+		{
+			"resource": "${1:id do recurso}",
+			"event": "timeEvent",
+			"value": [
+				[">=", ${3:tempo de saida}]
+			], 
+			"direction": "down",
+			"action": "out"
+		},
+
+		{
+			"resource": "${1:id do recurso}",
+			"event": "timeEvent",
+			"value": [
+				["<", ${2:tempo de entrada}]
+			], 
+			"direction": "down",
+			"action": "out"
+		}
+	]
+},
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>orderSync</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
